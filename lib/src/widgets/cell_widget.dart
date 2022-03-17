@@ -4,7 +4,7 @@
 part of table_calendar;
 
 class _CellWidget extends StatelessWidget {
-  final String text;
+  final String? text;
   final bool isUnavailable;
   final bool isSelected;
   final bool isToday;
@@ -15,8 +15,8 @@ class _CellWidget extends StatelessWidget {
   final CalendarStyle calendarStyle;
 
   const _CellWidget({
-    Key key,
-    @required this.text,
+    Key? key,
+    required this.text,
     this.isUnavailable = false,
     this.isSelected = false,
     this.isToday = false,
@@ -24,9 +24,8 @@ class _CellWidget extends StatelessWidget {
     this.isOutsideMonth = false,
     this.isHoliday = false,
     this.isEventDay = false,
-    @required this.calendarStyle,
+    required this.calendarStyle,
   })  : assert(text != null),
-        assert(calendarStyle != null),
         super(key: key);
 
   @override
@@ -37,7 +36,7 @@ class _CellWidget extends StatelessWidget {
       margin: calendarStyle.cellMargin,
       alignment: Alignment.center,
       child: Text(
-        text,
+        text!,
         style: _buildCellTextStyle(),
       ),
     );
